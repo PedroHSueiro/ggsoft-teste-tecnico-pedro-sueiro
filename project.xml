@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+	<meta title="GGSoft Teste Técnico - Animação" package="ggsoft.teste.animacao" version="1.0.0" company="GGSoft" />
+	<app main="Main" path="Export" file="teste_tecnico_animacao" />
+
+	<window width="1200" height="800" background="#f2f2f2" fps="60" />
+
+	<source path="Source" />
+
+	<haxelib name="openfl" />
+
+	<!-- Opcional (diferencial): se você quiser resolver o desafio usando o
+	     Spine (mesma stack que usamos em produção), descomente a linha
+	     abaixo. Não é obrigatório — dá pra fazer bone+malha na mão, só com
+	     openfl.display (ver docs/TECNICA_ANIMACAO.md). -->
+	<!-- <haxelib name="spine-hx" version="3.8.1" /> -->
+
+	<assets path="assets" rename="assets" />
+
+</project>

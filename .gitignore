@@ -1,0 +1,12 @@
+# Artefatos de build nativos (Windows/macOS) — não versionar.
+# O build HTML5 (Export/html5/bin) é a exceção: ele PRECISA ir no repo,
+# é a entrega (ver README.md).
+Export/*
+!Export/html5/
+Export/html5/*
+!Export/html5/bin/
+Export/html5/obj/
+
+*.hxml
+.DS_Store
+*.code-workspace
