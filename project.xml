@@ -14,7 +14,8 @@
 	     Spine (mesma stack que usamos em produção), descomente a linha
 	     abaixo. Não é obrigatório — dá pra fazer bone+malha na mão, só com
 	     openfl.display (ver docs/TECNICA_ANIMACAO.md). -->
-	<!-- <haxelib name="spine-hx" version="3.8.1" /> -->
+		 
+	<haxelib name="spine-hx"/>
 
 	<assets path="assets" rename="assets" />
 

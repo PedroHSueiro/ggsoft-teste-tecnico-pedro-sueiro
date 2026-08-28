@@ -1,0 +1,34 @@
+
+skeleton.png
+size: 2006,700
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+[slot] arm
+  rotate: false
+  xy: 0, 0
+  size: 500, 700
+  orig: 500, 700
+  offset: 0, 0
+  index: -1
+[slot] body
+  rotate: false
+  xy: 502, 0
+  size: 500, 700
+  orig: 500, 700
+  offset: 0, 0
+  index: -1
+[slot] head
+  rotate: false
+  xy: 1004, 0
+  size: 500, 700
+  orig: 500, 700
+  offset: 0, 0
+  index: -1
+[slot] leg
+  rotate: false
+  xy: 1506, 0
+  size: 500, 700
+  orig: 500, 700
+  offset: 0, 0
+  index: -1
