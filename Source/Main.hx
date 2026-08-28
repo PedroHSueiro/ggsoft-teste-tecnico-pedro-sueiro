@@ -41,7 +41,18 @@ class Main extends Sprite {
 		addSimpleTiming();
 	}
 
-	// --- 1. Instânciação do personagem usando Spine
+	/**
+	 * --- 1. Instanciação do personagem usando Spine ---
+	 * 
+	 * Esse método acessa o atlas, textura e dados do skeleton para instanciar o personagem, além de definir
+	 * sua posição na cena e inicializar sua animação padrão.
+	 * 
+	 * Para isso, são utilizadas duas classes de suporte:
+	 *  
+	 *  - CustomTextureLoader => Responsável por carregar os dados de texturas para a página do atlas
+	 *  - StringFileHandle => Transformar o skeleton.json em um arquivo legível para a criação do SkeletonJson
+	 * 
+	 */
 
 	function addCharacter():Void {
 		// Atlas setup
@@ -71,7 +82,13 @@ class Main extends Sprite {
 		animationState.setAnimationByName(0, "idle_anim", true);
 	}
 
-	// --- 2. Timer baseado na demo para update de animação
+	/**
+	 * --- 2. Timer baseado na demo para update de animação ---
+	 * 
+	 * Esses métodos são responsáveis por atualizar constantemente o skeleton e as animações do personagem.
+	 * Utiliza a base do "timer" disponibilizado na demo do projeto.
+	 * 
+	 */
 
 	function addSimpleTiming():Void {
 		timer = new haxe.Timer(TIMER_INTERVAL_MS);
@@ -96,7 +113,18 @@ class Main extends Sprite {
 		renderCharacter();
 	}
 
-	// --- 3. Renderização do personagem com base em triângulos 
+	/**
+	 * --- 3. Renderização do personagem com base em triângulos da mesh ---
+	 * 
+	 * O método precisa identificar os três parâmetros principais para o desenho de cada triângulo da mesh:
+	 *  
+	 *  - Vértices
+	 *  - UVs
+	 *  - Indices dos Triângulos
+	 * 
+	 * Para isso, os dados são adquiridos na leitura da mesh de cada parte do personagem, por meio do seu attachment,
+	 * e são armazenados em vetores para popular o método drawTriangles
+	 */
 
 	private function renderCharacter():Void {
 		if (skeleton == null || atlasTexture == null) return;
@@ -108,7 +136,7 @@ class Main extends Sprite {
 			var attachment:Attachment = slot.attachment; // Acessa o atachment do slot
 			if (attachment == null) continue;
 
-			// Verifica se o tipo de attachment é mesh (Nesse caso, o personagem só tem a mesh)
+			// Verifica se o tipo de attachment é mesh (nesse caso, o personagem só tem a mesh)
 			var className = Type.getClassName(Type.getClass(attachment));
 			if (className != null && className.indexOf("MeshAttachment") != -1) {
 				var mesh:MeshAttachment = cast attachment;
@@ -127,7 +155,7 @@ class Main extends Sprite {
 					vertices[i] = rawVertices[i];
 				}
 
-				// -- 3.2 UVs DIRETAS DO SPINE (Sem alterações de código)
+				// -- 3.2 UVs
 
 				// Seleção e definição dos pontos das UVs
 				var meshUVs = mesh.getUVs().items;
@@ -139,9 +167,9 @@ class Main extends Sprite {
 				// -- 3.3 Triângulos
 
 				// Definição do índice de triângulos da mesh 
-				var trianglesIntArray = mesh.getTriangles();
-				var meshTriangles = trianglesIntArray.items;
-				var numIndices = trianglesIntArray.size > 0 ? trianglesIntArray.size : trianglesIntArray.length;
+				var trianglesList = mesh.getTriangles();
+				var meshTriangles = trianglesList.items;
+				var numIndices = trianglesList.size > 0 ? trianglesList.size : trianglesList.length;
 
 				// Transforma a lista de triângulos em um vetor
 				var triangleIndices = new Vector<Int>(numIndices, true);
