@@ -913,7 +913,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "4";
+	app.meta.h["build"] = "6";
 	app.meta.h["company"] = "GGSoft";
 	app.meta.h["file"] = "teste_tecnico_animacao";
 	app.meta.h["name"] = "GGSoft Teste Técnico - Animação";
@@ -5326,9 +5326,9 @@ Main.prototype = $extend(openfl_display_Sprite.prototype,{
 					var i2 = _g4++;
 					vectorUVs.set(i2,meshUVs[i2]);
 				}
-				var trianglesIntArray = mesh.triangles;
-				var meshTriangles = trianglesIntArray;
-				var numIndices = trianglesIntArray.length > 0 ? trianglesIntArray.length : trianglesIntArray.length;
+				var trianglesList = mesh.triangles;
+				var meshTriangles = trianglesList;
+				var numIndices = trianglesList.length > 0 ? trianglesList.length : trianglesList.length;
 				var triangleIndices = openfl_Vector.toIntVector(null,numIndices,true);
 				var _g6 = 0;
 				var _g7 = numIndices;
@@ -27085,7 +27085,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 987526;
+	this.version = 573187;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
